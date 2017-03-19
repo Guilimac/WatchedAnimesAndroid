@@ -10,6 +10,15 @@ public class Anime {
     private String name;
     private String description;
     private double rating;
+    private int userId;
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     public int getId() {
         return id;

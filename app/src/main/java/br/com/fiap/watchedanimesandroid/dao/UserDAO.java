@@ -26,7 +26,7 @@ public class UserDAO {
     public static final String COLUNA_USERNAME = "username";
 
     public List<User> getAll() {
-        List<User> clubes = new LinkedList<>();
+        List<User> users = new LinkedList<>();
 
         String query = "SELECT  * FROM " + TABELA_USER;
 
@@ -40,10 +40,10 @@ public class UserDAO {
                 user = new User();
                 user.setId(cursor.getInt(cursor.getColumnIndex(COLUNA_ID)));
                 user.setUsername(cursor.getString(cursor.getColumnIndex(COLUNA_USERNAME)));
-                clubes.add(user);
+                users.add(user);
             } while (cursor.moveToNext());
         }
-        return clubes;
+        return users;
     }
 
     public User getBy(int id) {
