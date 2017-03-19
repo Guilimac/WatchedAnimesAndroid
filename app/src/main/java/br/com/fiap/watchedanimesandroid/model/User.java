@@ -1,12 +1,16 @@
 package br.com.fiap.watchedanimesandroid.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by guilherme on 19/03/17.
  */
 
 public class User {
     private int id;
+    @SerializedName("usuario")
     private String username;
+    @SerializedName("senha")
     private String password;
     private int isLogged;
 

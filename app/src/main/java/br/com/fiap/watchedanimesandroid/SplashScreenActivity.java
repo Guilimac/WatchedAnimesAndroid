@@ -4,11 +4,21 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
+
+import br.com.fiap.watchedanimesandroid.dao.UserDAO;
+import br.com.fiap.watchedanimesandroid.model.User;
+import br.com.fiap.watchedanimesandroid.network.UserAPI;
+import retrofit.Callback;
+import retrofit.RestAdapter;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
     private final int SPLASH_DISPLAY_LENGTH = 3500;
-
+    private User serviceUser;
+    private UserDAO userDAO;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +28,26 @@ public class SplashScreenActivity extends AppCompatActivity {
     }
 
     private void carregar() {
+        final RestAdapter restadapter = new RestAdapter.Builder()
+                .setEndpoint("http://www.mocky.io/v2/58b9b1740f0000b614f09d2f")
+                .build();
+        if(userDAO.getAll().isEmpty()){
+            UserAPI api = restadapter.create(UserAPI.class);
+
+            api.getUSer(new Callback<User>() {
+                @Override
+                public void success(User user, Response response) {
+                    serviceUser = user;
+                    serviceUser.setIsLogged(0);
+                    userDAO.add(serviceUser);
+                }
+
+                @Override
+                public void failure(RetrofitError error) {
+                    Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
 
 
         new Handler().postDelayed(new Runnable() {
