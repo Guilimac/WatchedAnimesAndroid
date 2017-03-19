@@ -31,6 +31,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         final RestAdapter restadapter = new RestAdapter.Builder()
                 .setEndpoint("http://www.mocky.io/v2/58b9b1740f0000b614f09d2f")
                 .build();
+        userDAO = new UserDAO(this);
         if(userDAO.getAll().isEmpty()){
             UserAPI api = restadapter.create(UserAPI.class);
 
