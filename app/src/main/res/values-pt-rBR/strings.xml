@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="edtUserNameHint">Username</string>
+    <string name="edtPasswordHint">Password</string>
+    <string name="tvHelloLogin">Welcome</string>
+    <string name="tvTitleLogin">Watched Animes</string>
+</resources>

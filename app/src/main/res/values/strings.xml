@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">WatchedAnimesAndroid</string>
+    <string name="edtUserNameHint">Username</string>
+    <string name="edtPasswordHint">Password</string>
+    <string name="btnLogin">login</string>
+    <string name="tvHelloLogin">Welcome</string>
+    <string name="tvTitleLogin">Watched Animes</string>
+
+    <string name="title_activity_splash_screen">SplashScreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+</resources>
