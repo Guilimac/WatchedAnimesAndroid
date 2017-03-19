@@ -8,6 +8,15 @@ public class User {
     private int id;
     private String username;
     private String password;
+    private int isLogged;
+
+    public int getIsLogged() {
+        return isLogged;
+    }
+
+    public void setIsLogged(int isLogged) {
+        this.isLogged = isLogged;
+    }
 
     public String getPassword() {
         return password;

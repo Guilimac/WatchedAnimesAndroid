@@ -24,7 +24,8 @@ public class UserDAO {
 
     public static final String COLUNA_ID = "id";
     public static final String COLUNA_USERNAME = "username";
-
+    public static final String COLUNA_PASSWORD = "password";
+    public static final String COLUNA_ISLOGGED = "islogged";
     public List<User> getAll() {
         List<User> users = new LinkedList<>();
 
@@ -49,7 +50,7 @@ public class UserDAO {
     public User getBy(int id) {
 
         SQLiteDatabase readDb = db.getReadableDatabase();
-        String colunas[] = { COLUNA_ID, COLUNA_USERNAME};
+        String colunas[] = { COLUNA_ID, COLUNA_USERNAME,COLUNA_PASSWORD,COLUNA_ISLOGGED};
         String where = "id = " + id;
         Cursor cursor = readDb.query(true, TABELA_USER, colunas, where, null, null, null, null, null);
 
@@ -60,7 +61,9 @@ public class UserDAO {
             cursor.moveToFirst();
             user = new User();
             user.setUsername(cursor.getString(cursor.getColumnIndex(COLUNA_USERNAME)));
+            user.setPassword(cursor.getString(cursor.getColumnIndex(COLUNA_PASSWORD)));
             user.setId(cursor.getInt(cursor.getColumnIndex(COLUNA_ID)));
+            user.setIsLogged(cursor.getInt(cursor.getColumnIndex(COLUNA_ISLOGGED)));
         }
         return user;
     }
@@ -71,7 +74,8 @@ public class UserDAO {
         ContentValues values = new ContentValues();
 
         values.put(COLUNA_USERNAME, user.getUsername());
-
+        values.put(COLUNA_PASSWORD, user.getPassword());
+        values.put(COLUNA_ISLOGGED, user.getIsLogged());
         resultado = writeDb.insert(TABELA_USER,
                 null,
                 values);
