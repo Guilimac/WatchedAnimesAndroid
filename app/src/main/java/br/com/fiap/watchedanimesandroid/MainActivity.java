@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -23,7 +24,7 @@ import br.com.fiap.watchedanimesandroid.dao.AnimeDAO;
 import br.com.fiap.watchedanimesandroid.model.Anime;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemClickListener {
     private AnimeDAO animeDAO;
     private List<Anime> animes;
 
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity
 
         AnimeAdapter adapter = new AnimeAdapter(animes,this);
         lvAnimes.setAdapter(adapter);
+        lvAnimes.setOnItemClickListener(this);
 
     }
 
@@ -106,11 +108,21 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
             MainActivity.this.finish();
         } else if (id == R.id.nav_about) {
-
+            Intent intent = new Intent(MainActivity.this,
+                    AboutActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(intent);
+            MainActivity.this.finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Anime anime = animes.get(position);
+
     }
 }

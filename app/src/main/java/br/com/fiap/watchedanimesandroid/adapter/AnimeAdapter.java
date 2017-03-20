@@ -46,7 +46,7 @@ public class AnimeAdapter extends BaseAdapter {
         TextView tvAnimeRating = (TextView)v.findViewById(R.id.tvAnimeRating);
 
         tvAnimeName.setText(anime.getName());
-        tvAnimeRating.setText(String.valueOf(anime.getRating()));
+        tvAnimeRating.setText(Double.toString(anime.getRating()));
 
 
         return v;
