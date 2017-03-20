@@ -40,7 +40,10 @@ public class SplashScreenActivity extends AppCompatActivity {
                 public void success(User user, Response response) {
                     serviceUser = user;
                     serviceUser.setIsLogged(0);
-                    userDAO.add(serviceUser);
+                    String result = userDAO.add(serviceUser);
+                    if(result.isEmpty()){
+                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                    }
                 }
 
                 @Override

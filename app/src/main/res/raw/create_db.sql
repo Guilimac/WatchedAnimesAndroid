@@ -1,6 +1,7 @@
-CREATE TABLE user (
+CREATE TABLE users (
    id integer NOT NULL PRIMARY KEY,
    username varchar(255) NOT NULL,
+   password varchar(255) NOT NULL,
    islogged integer NOT NULL  DEFAULT 0
 );
 

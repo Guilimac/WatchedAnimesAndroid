@@ -20,7 +20,7 @@ public class UserDAO {
     public UserDAO(Context context){
         db = new DBOpenHelper(context);
     }
-    public static final String TABELA_USER = "user";
+    public static final String TABELA_USER = "users";
 
     public static final String COLUNA_ID = "id";
     public static final String COLUNA_USERNAME = "username";
@@ -41,6 +41,7 @@ public class UserDAO {
                 user = new User();
                 user.setId(cursor.getInt(cursor.getColumnIndex(COLUNA_ID)));
                 user.setUsername(cursor.getString(cursor.getColumnIndex(COLUNA_USERNAME)));
+                user.setPassword(cursor.getString(cursor.getColumnIndex(COLUNA_PASSWORD)));
                 users.add(user);
             } while (cursor.moveToNext());
         }
@@ -85,7 +86,7 @@ public class UserDAO {
         if(resultado == -1) {
             return "Erro ao inserir registro";
         } else {
-            return "Registro inserido com sucesso";
+            return "";
         }
     }
 

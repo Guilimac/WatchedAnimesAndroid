@@ -78,6 +78,7 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences pref = getSharedPreferences(KEY_APP_PREFERENCES, MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putString(KEY_LOGIN, login);
+        editor.commit();
         editor.apply();
     }
 }

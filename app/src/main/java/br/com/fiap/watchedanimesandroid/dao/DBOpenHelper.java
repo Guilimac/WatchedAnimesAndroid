@@ -15,7 +15,7 @@ import android.util.Log;
 import br.com.fiap.watchedanimesandroid.R;
 
 public class DBOpenHelper extends SQLiteOpenHelper {
-    private static final String DB_NAME = "torcedometro.db";
+    private static final String DB_NAME = "animesdb.db";
     private static final int VERSAO_BANCO = 1;
 
     private Context ctx;
