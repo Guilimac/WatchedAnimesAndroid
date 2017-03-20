@@ -1,6 +1,7 @@
 package br.com.fiap.watchedanimesandroid;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import retrofit.client.Response;
 public class SplashScreenActivity extends AppCompatActivity {
 
     private final int SPLASH_DISPLAY_LENGTH = 3500;
+    private final String KEY_LOGIN = "login";
     private User serviceUser;
     private UserDAO userDAO;
     @Override
@@ -58,12 +60,29 @@ public class SplashScreenActivity extends AppCompatActivity {
             @Override
             public void run() {
                 // Após o tempo definido irá executar a próxima tela
-                Intent intent = new Intent(SplashScreenActivity.this,
-                        LoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                startActivity(intent);
-                SplashScreenActivity.this.finish();
+                if(isConectado()){
+                    Intent intent = new Intent(SplashScreenActivity.this,
+                            MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
+                    SplashScreenActivity.this.finish();
+                }else{
+                    Intent intent = new Intent(SplashScreenActivity.this,
+                            LoginActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
+                    SplashScreenActivity.this.finish();
+                }
+
             }
         }, SPLASH_DISPLAY_LENGTH);
+    }
+    private boolean isConectado() {
+        SharedPreferences shared = getSharedPreferences("info",MODE_PRIVATE);
+        String login = shared.getString(KEY_LOGIN, "");
+        if(login.equals(""))
+            return false;
+        else
+            return true;
     }
 }

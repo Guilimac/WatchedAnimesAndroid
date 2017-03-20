@@ -26,11 +26,13 @@
     <string name="errratingParse">Invalid rating value</string>
     <string name="errNewAnimeFields">Please fill all fields</string>
     <string name="btnEdit">Edit</string>
-    <string name="btnDelete">Delete</string>
+    <string name="btnDelete">Excluir</string>
     <string name="btnSave">Save</string>
-    <string name="titleEditAnime">Edti Anime</string>
-    <string name="deleteAnimeTitle">Delte Anime!</string>
+    <string name="titleEditAnime">Edit Anime</string>
+    <string name="deleteAnimeTitle">Delete Anime!</string>
     <string name="deleteAnimeMessage">Are you sure you want to delete this anime?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="errLogin">Invalid username or password!</string>
+    <string name="lbMenuSaudation">Your animes list anywhere!</string>
 </resources>

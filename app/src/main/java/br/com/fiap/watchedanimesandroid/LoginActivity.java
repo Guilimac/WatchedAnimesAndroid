@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ import br.com.fiap.watchedanimesandroid.model.User;
 public class LoginActivity extends AppCompatActivity {
 
     private final String KEY_LOGIN = "login";
-    private final String KEY_APP_PREFERENCES = "login";
+    private final String KEY_APP_PREFERENCES = "Enter";
 
     private EditText edtUserName;
     private EditText edtPassword;
@@ -66,8 +67,10 @@ public class LoginActivity extends AppCompatActivity {
             if(login.equals(user.getUsername())
                     && senha.equals(user.getPassword())) {
                 return true;
-            } else
+            } else {
+                Toast.makeText(getApplicationContext(), R.string.errLogin, Toast.LENGTH_SHORT).show();
                 return false;
+            }
         }else{
             return false;
         }
@@ -78,7 +81,6 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences pref = getSharedPreferences(KEY_APP_PREFERENCES, MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putString(KEY_LOGIN, login);
-        editor.commit();
         editor.apply();
     }
 }
