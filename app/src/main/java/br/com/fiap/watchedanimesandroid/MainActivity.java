@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         animeDAO = new AnimeDAO(this);
         animes = animeDAO.getAll();
-        recAnimes.setAdapter(new AnimeAdapter(animes,this));
+        recAnimes.setAdapter(new AnimeAdapter(animes,this,onClickAnime()));
         RecyclerView.LayoutManager layout = new LinearLayoutManager(this,
                 LinearLayoutManager.VERTICAL, false);
 
@@ -120,6 +121,17 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private AnimeAdapter.AnimeOnclickListener onClickAnime(){
+        return new AnimeAdapter.AnimeOnclickListener() {
+            @Override
+            public void onClickAnime(View v, int index) {
+                Anime anime = animes.get(index);
+                Toast.makeText(getApplicationContext(), anime.getName(), Toast.LENGTH_SHORT).show();
+
+            }
+        };
     }
 
 }
