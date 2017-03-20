@@ -36,7 +36,8 @@
         android:layout_alignParentLeft = "true"
         android:layout_alignParentStart = "true"
         android:layout_alignParentRight = "true"
-        android:layout_alignParentEnd = "true" />
+        android:layout_alignParentEnd = "true"
+        android:inputType="textPersonName"/>
 
     <ImageView
         android:layout_width="150dp"
@@ -58,7 +59,8 @@
         android:layout_alignRight="@+id/edtUserName"
         android:layout_alignEnd="@+id/edtUserName"
         android:textColorHint="#00b2ff"
-        android:hint="@string/edtPasswordHint" />
+        android:hint="@string/edtPasswordHint"
+        />
 
 
     <Button

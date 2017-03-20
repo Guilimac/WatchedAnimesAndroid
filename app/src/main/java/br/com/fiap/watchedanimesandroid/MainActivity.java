@@ -1,5 +1,6 @@
 package br.com.fiap.watchedanimesandroid;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,10 +13,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.List;
+
+import br.com.fiap.watchedanimesandroid.adapter.AnimeAdapter;
+import br.com.fiap.watchedanimesandroid.dao.AnimeDAO;
+import br.com.fiap.watchedanimesandroid.model.Anime;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private AnimeDAO animeDAO;
+    private List<Anime> animes;
 
+    private ListView lvAnimes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +52,13 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        lvAnimes = (ListView)findViewById(R.id.lvAnimes);
+        animeDAO = new AnimeDAO(this);
+        animes = animeDAO.getAll();
+
+        AnimeAdapter adapter = new AnimeAdapter(animes,this);
+        lvAnimes.setAdapter(adapter);
+
     }
 
     @Override
@@ -80,17 +99,13 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        if (id == R.id.nav_add) {
+            Intent intent = new Intent(MainActivity.this,
+                    AddAnimeActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(intent);
+            MainActivity.this.finish();
+        } else if (id == R.id.nav_about) {
 
         }
 

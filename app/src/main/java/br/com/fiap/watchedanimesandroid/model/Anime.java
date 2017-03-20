@@ -51,4 +51,8 @@ public class Anime {
     public void setRating(double rating) {
         this.rating = rating;
     }
+
+    public String toString(){
+        return name;
+    }
 }

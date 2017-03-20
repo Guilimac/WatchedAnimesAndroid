@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">WatchedAnimesAndroid</string>
     <string name="edtUserNameHint">Username</string>
     <string name="edtPasswordHint">Password</string>
+    <string name="btnLogin">login</string>
     <string name="tvHelloLogin">Welcome</string>
     <string name="tvTitleLogin">Watched Animes</string>
+
+    <string name="title_activity_splash_screen">SplashScreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
     <string name="cbKeepLogin">Keep Logged</string>
+    <string name="navTitleCommunicate">Communicate</string>
+    <string name="navAbout">About</string>
+    <string name="navNewAnime">New Anime</string>
+    <string name="tvNewName">Name:</string>
+    <string name="tvNewDescription">Description:</string>
+    <string name="tvNewRating">Rating:</string>
+    <string name="btnNewAnime">Register New Anime</string>
+    <string name="errratingParse">Invalid rating value</string>
 </resources>
