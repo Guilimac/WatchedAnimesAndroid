@@ -72,5 +72,16 @@
         android:layout_alignLeft="@+id/tvTitleLogin"
         android:layout_alignStart="@+id/tvTitleLogin" />
 
+    <CheckBox
+        android:text="@string/cbKeepLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtPassword"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/cbKeepLogin"
+        android:layout_alignRight="@+id/button"
+        android:layout_alignEnd="@+id/button" />
+
 
 </RelativeLayout>
