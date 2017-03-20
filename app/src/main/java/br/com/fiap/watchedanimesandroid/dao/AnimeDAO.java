@@ -33,8 +33,8 @@ public class AnimeDAO {
         ContentValues values = new ContentValues();
 
         values.put(COLUNA_NAME, anime.getName());
-        values.put(COLUNA_DESCRIPTION, anime.getUserId());
-        values.put(COLUNA_RATING, anime.getDescription());
+        values.put(COLUNA_DESCRIPTION, anime.getDescription());
+        values.put(COLUNA_RATING, anime.getRating());
         values.put(COLUNA_USER_ID, anime.getUserId());
 
         resultado = writeDb.insert(TABELA_ANIME,

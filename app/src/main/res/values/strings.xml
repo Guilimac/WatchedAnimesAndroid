@@ -25,4 +25,6 @@
     <string name="btnNewAnime">Register New Anime</string>
     <string name="errratingParse">Invalid rating value</string>
     <string name="errNewAnimeFields">Please fill all fields</string>
+    <string name="btnEdit">Edit</string>
+    <string name="btnDelete">Delete</string>
 </resources>

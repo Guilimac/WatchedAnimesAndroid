@@ -128,7 +128,9 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClickAnime(View v, int index) {
                 Anime anime = animes.get(index);
-                Toast.makeText(getApplicationContext(), anime.getName(), Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(MainActivity.this,AnimeDetailsActivity.class);
+                i.putExtra("animeId",anime.getId());
+                startActivity(i);
 
             }
         };
