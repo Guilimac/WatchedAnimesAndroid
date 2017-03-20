@@ -16,4 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/lvAnimes"></ListView>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recAnimes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </RelativeLayout>

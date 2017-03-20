@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -24,11 +26,11 @@ import br.com.fiap.watchedanimesandroid.dao.AnimeDAO;
 import br.com.fiap.watchedanimesandroid.model.Anime;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemClickListener {
+        implements NavigationView.OnNavigationItemSelectedListener {
     private AnimeDAO animeDAO;
     private List<Anime> animes;
 
-    private ListView lvAnimes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,16 +52,16 @@ public class MainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
+        RecyclerView recAnimes = (RecyclerView)findViewById(R.id.recAnimes);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        lvAnimes = (ListView)findViewById(R.id.lvAnimes);
         animeDAO = new AnimeDAO(this);
         animes = animeDAO.getAll();
+        recAnimes.setAdapter(new AnimeAdapter(animes,this));
+        RecyclerView.LayoutManager layout = new LinearLayoutManager(this,
+                LinearLayoutManager.VERTICAL, false);
 
-        AnimeAdapter adapter = new AnimeAdapter(animes,this);
-        lvAnimes.setAdapter(adapter);
-        lvAnimes.setOnItemClickListener(this);
+        recAnimes.setLayoutManager(layout);
 
     }
 
@@ -120,9 +122,4 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Anime anime = animes.get(position);
-
-    }
 }
