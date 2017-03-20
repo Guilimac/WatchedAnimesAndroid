@@ -29,4 +29,8 @@
     <string name="btnDelete">Delete</string>
     <string name="btnSave">Save</string>
     <string name="titleEditAnime">Edti Anime</string>
+    <string name="deleteAnimeTitle">Delte Anime!</string>
+    <string name="deleteAnimeMessage">Are you sure you want to delete this anime?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

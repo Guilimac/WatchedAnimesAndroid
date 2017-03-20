@@ -1,6 +1,8 @@
 package br.com.fiap.watchedanimesandroid;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -40,5 +42,28 @@ public class AnimeDetailsActivity extends AppCompatActivity {
         Intent i = new Intent(AnimeDetailsActivity.this,AnimeEditActivity.class);
         i.putExtra("animeId",anime.getId());
         startActivity(i);
+    }
+
+    public void btnDelete(View v){
+
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle(R.string.deleteAnimeTitle)
+                .setMessage(R.string.deleteAnimeMessage)
+                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        AnimeDAO animeDAO = new AnimeDAO(AnimeDetailsActivity.this);
+                        animeDAO.delete(anime);
+                        Intent i = new Intent(AnimeDetailsActivity.this,MainActivity.class);
+                        startActivity(i);
+                    }
+
+                })
+                .setNegativeButton(R.string.no, null)
+                .show();
+
+
     }
 }

@@ -110,4 +110,11 @@ public class AnimeDAO {
 
     }
 
+    public void delete(Anime anime){
+        SQLiteDatabase readDb = db.getReadableDatabase();
+        String where = "id = " + anime.getId();
+        readDb.delete(TABELA_ANIME,where,null);
+        readDb.close();
+    }
+
 }

@@ -39,6 +39,7 @@
         android:layout_height="wrap_content"
         android:background="#b10009"
         android:text="@string/btnDelete"
-        android:textColor="#fff"/>
+        android:textColor="#fff"
+        android:onClick="btnDelete"/>
 
 </LinearLayout>
