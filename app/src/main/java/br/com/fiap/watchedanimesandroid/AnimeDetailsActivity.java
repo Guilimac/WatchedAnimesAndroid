@@ -1,7 +1,9 @@
 package br.com.fiap.watchedanimesandroid;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import br.com.fiap.watchedanimesandroid.dao.AnimeDAO;
@@ -11,6 +13,8 @@ public class AnimeDetailsActivity extends AppCompatActivity {
     TextView tvDetAnimeName;
     TextView tvDetAnimeDescription;
     TextView tvDetAnimeRating;
+
+    Anime anime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +26,7 @@ public class AnimeDetailsActivity extends AppCompatActivity {
         if(getIntent()!= null){
             int id = getIntent().getIntExtra("animeId",0);
             AnimeDAO animeDAO = new AnimeDAO(this);
-            Anime anime = animeDAO.getBy(id);
+            anime = animeDAO.getBy(id);
 
             if(anime != null){
                 tvDetAnimeName.setText(anime.getName());
@@ -30,5 +34,11 @@ public class AnimeDetailsActivity extends AppCompatActivity {
                 tvDetAnimeRating.setText(Double.toString(anime.getRating()));
             }
         }
+    }
+
+    public void btnEdit(View v){
+        Intent i = new Intent(AnimeDetailsActivity.this,AnimeEditActivity.class);
+        i.putExtra("animeId",anime.getId());
+        startActivity(i);
     }
 }

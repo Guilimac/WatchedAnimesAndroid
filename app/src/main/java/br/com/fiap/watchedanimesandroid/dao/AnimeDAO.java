@@ -96,4 +96,18 @@ public class AnimeDAO {
         return anime;
     }
 
+    public void edit(Anime anime){
+        SQLiteDatabase writeDb = db.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COLUNA_NAME, anime.getName());
+        values.put(COLUNA_DESCRIPTION, anime.getDescription());
+        values.put(COLUNA_RATING, anime.getRating());
+        String where = "id = " + anime.getId();
+
+        writeDb.update(TABELA_ANIME,values,where,null);
+        writeDb.close();
+
+    }
+
 }

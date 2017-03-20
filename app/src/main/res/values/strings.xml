@@ -27,4 +27,6 @@
     <string name="errNewAnimeFields">Please fill all fields</string>
     <string name="btnEdit">Edit</string>
     <string name="btnDelete">Delete</string>
+    <string name="btnSave">Save</string>
+    <string name="titleEditAnime">Edti Anime</string>
 </resources>

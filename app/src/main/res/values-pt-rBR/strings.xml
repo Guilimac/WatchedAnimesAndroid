@@ -26,4 +26,6 @@
     <string name="btnNewAnime">Register New Anime</string>
     <string name="errratingParse">Invalid rating value</string>
     <string name="btnEdit">Edit</string>
+    <string name="btnSave">Save</string>
+    <string name="titleEditAnime">Edti Anime</string>
 </resources>

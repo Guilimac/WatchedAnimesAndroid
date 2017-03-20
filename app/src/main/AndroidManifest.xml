@@ -26,7 +26,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".AddAnimeActivity" />
         <activity android:name=".AboutActivity" />
-        <activity android:name=".AnimeDetailsActivity"></activity>
+        <activity android:name=".AnimeDetailsActivity" />
+        <activity android:name=".AnimeEditActivity"></activity>
     </application>
 
 </manifest>

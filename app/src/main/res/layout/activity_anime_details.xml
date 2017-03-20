@@ -32,7 +32,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btnEdit"
-        android:id="@+id/btnEdit"/>
+        android:id="@+id/btnEdit"
+        android:onClick="btnEdit"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
